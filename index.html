@@ -1,0 +1,19 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+
+<title>
+	Spotify Authentication
+</title>
+<body>
+	Spotify Authentication Details: <br>
+	Spotity API access token: <%=Request.QueryString("access_token")%><br>
+	Token Type: <%=Request.QueryString("token_type")%><br>
+	Expiery (in seconds) of the key: <%=Request.QueryString("expires_in")%><br>
+	Value of state parameter supplied in request: <%=Request.QueryString("state")%><br>
+	Error (why authentication failed): <%=Request.QueryString("error")%><br>
+</body>
+
+
+ </body>
+ </html>
