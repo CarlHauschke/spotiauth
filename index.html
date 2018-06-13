@@ -2,16 +2,30 @@
  <html lang="en">
  <head>
 
+<script type="text/javascript">
+	function qs(search_for) {
+		var query = window.location.search.substring(1);
+		var parms = query.split('&');
+		for (var i=0; i<parms.length; i++) {
+			var pos = parms[i].indexOf('=');
+			if (pos > 0  && search_for == parms[i].substring(0,pos)) {
+				return parms[i].substring(pos+1);;
+			}
+		}
+		return "";
+	}
+</script>
+
 <title>
 	Spotify Authentication
 </title>
 <body>
 	Spotify Authentication Details: <br>
-	Spotity API access token: <%=Request.QueryString("access_token")%><br>
-	Token Type: <%=Request.QueryString("token_type")%><br>
-	Expiery (in seconds) of the key: <%=Request.QueryString("expires_in")%><br>
-	Value of state parameter supplied in request: <%=Request.QueryString("state")%><br>
-	Error (why authentication failed): <%=Request.QueryString("error")%><br>
+	Spotity API access token: <script type="text/javascript">document.write(qs("access_token"));</script><br>
+	Token Type: <script type="text/javascript">document.write(qs("token_type"));</script><br>
+	Expiery (in seconds) of the key: <script type="text/javascript">document.write(qs("expires_in"));</script><br>
+	Value of state parameter supplied in request: <script type="text/javascript">document.write(qs("state"));</script><br>
+	Error (why authentication failed): <script type="text/javascript">document.write(qs("error"));</script><br>
 </body>
 
 
